@@ -13,15 +13,19 @@ const broadcastChannel = new BroadcastChannel("WebSocketChannel");
 const idToPortMap = {};
 
 // Deixe todos os contextos conectados (guias) saberem sobre mudanças de estado
-ws.onopen = () =>
+ws.onopen = () => {
+    console.log("%cCONEXÃO ABERTA.", "font-size:25px;font-weight:bold;color:green;");
     broadcastChannel.postMessage({ type: "WSState", state: ws.readyState });
-ws.onclose = () =>
+}
+
+ws.onclose = () => {
+    console.log("%cCONEXÃO FECHADA.", "font-size:25px;font-weight:bold;color:yellow;");
     broadcastChannel.postMessage({ type: "WSState", state: ws.readyState });
+}
 
 // Quando recebemos dados do servidor.
 ws.onmessage = ({ data }) => {
     console.log("[STEP 1]");
-    console.log(data);
     // Constrói o objeto a ser passado aos manipuladores
     const parsedData = { data: JSON.parse(data), type: "message" };
     if (!parsedData.data.from) {
@@ -41,6 +45,7 @@ onconnect = e => {
     console.log("[STEP 2]");
     const port = e.ports[0];
     port.onmessage = msg => {
+        console.log("[STEP 3]");
         // Colete informações da porta no mapa
         idToPortMap[msg.data.from] = port;
 

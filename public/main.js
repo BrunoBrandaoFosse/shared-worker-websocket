@@ -12,8 +12,12 @@ let webSocketState = WebSocket.CONNECTING;
 
 console.log(`Initializing the web worker for user: ${id}`);
 worker.port.start();
+
+/**
+ * Recebe mensagem do Service Worker
+ * @param {*} event 
+ */
 worker.port.onmessage = event => {
-console.log("event", event.data);
   switch (event.data.type) {
     case "WSState":
       webSocketState = event.data.state;
@@ -24,6 +28,9 @@ console.log("event", event.data);
   }
 };
 
+/**
+ * Transmite para todos os clientes
+ */
 const broadcastChannel = new BroadcastChannel("WebSocketChannel");
 broadcastChannel.addEventListener("message", event => {
   switch (event.data.type) {
@@ -40,7 +47,7 @@ broadcastChannel.addEventListener("message", event => {
 function handleBroadcast(data) {
   // console.log("Esta mensagem é para todos!");
   // console.log(data);
-  console.log(data.data.broadcast);
+  // console.log(data.data.broadcast);
   elLista.innerHTML += `<li class="destaque">${data.data.broadcast}</li>`;
   elLista.scrollTo(0, 9999);
 }
