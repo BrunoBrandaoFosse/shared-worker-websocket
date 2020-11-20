@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: beige;
+    font-size: 15px;
+}
+
+.app h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 46px;
+    color: black;
+}
+
+.app {
+    margin-top: 10%;
+}
+
+.app ul {
+    list-style: square;
+    height: 65vh;
+    overflow: auto;
+}
+
+.app ul li {
+    border-bottom: 1px solid #dddddd;
+    padding: 8px 0;
+    color: #555555;
+}
+
+.app ul li:last-child {
+    border-bottom: none;
+}
+
+.app .messages_received {
+    font-weight: 500;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+form input {
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 8px 15px;
+    outline: none;
+}
+
+form input:focus {
+    border-color: darkcyan;
+}
+
+form button {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    background-color: darkcyan;
+    border: 2px solid darkcyan;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.destaque {
+    font-weight: 500;
+    color: darkcyan !important;
+    text-transform: uppercase;
+}
+
+#lista::-webkit-scrollbar {
+    background-color: #ccc;
+    width: 5px;
+    height: 5px;
+}
+
+#lista::-webkit-scrollbar-button {
+    background-color: #ccc;
+    width: 5px;
+    height: 5px;
+}
+
+#lista::-webkit-scrollbar-thumb {
+    background-color: #e74c3c;
+    border-radius: 10px;
+}
+
+#lista::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+
+#lista::-webkit-scrollbar-track-piece {
+    /* background-color: #1a284e; */
+    background-color: #ccc;
+}
+
+#lista::-webkit-scrollbar-corner {
+    background-color: #ccc;
+}
